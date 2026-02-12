@@ -84,7 +84,7 @@ namespace Radioactivity {
 
 namespace NuclearReactions {
     inline double Q_Value(double before_mass, double after_mass){
-        double Temp_QValue = (before_mass - after_mass) * NuclearStatics::UNITS::MEV_PER_AMU;
+        return (before_mass - after_mass) * NuclearStatics::UNITS::MEV_PER_AMU;
     }
     
     inline double Threshold_Energy(double q_value_mev, double m_projectile_u, double m_target_u){
