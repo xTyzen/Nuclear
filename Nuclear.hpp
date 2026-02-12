@@ -99,7 +99,10 @@ namespace NuclearReactions {
 }
 
 namespace NuclearModels{
-
+    inline double semi_empirical_binding_energy(int Z, int N){
+        double A = Z + N;
+        if(A <= 0){return 0.0;}
+    }
 }
 
 #endif // NUCLEAR_HPP
