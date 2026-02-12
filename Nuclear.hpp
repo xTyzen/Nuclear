@@ -62,13 +62,13 @@ namespace NuclearEnergetics {
 
     inline double binding_per_nucleon(double total_biding_energy, double A)
     {
-        if (A == 0) {  return 1; }
+        if (A == 0) {  return 0.0; }
         return total_biding_energy / A;
     }
 }
 
 namespace Radioactivity { 
-    inline double lamdba_decay (double half_life_seconds){
+    inline double lambda_decay (double half_life_seconds){
         return std::log(2.0) / half_life_seconds;
     }
 
