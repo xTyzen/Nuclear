@@ -23,7 +23,7 @@ namespace NuclearStatics {
         constexpr double ELEMENTARY_CHARGE = 1.602176634 * 1e-19;
     }
 
-    namespace Units {
+    namespace UNITS {
         constexpr double AMU = 1.660539 * 1e-27;
         constexpr double MEV = 1.602176 * 1e-13;
         constexpr double EV = 1.602176634 * 1e-19;
@@ -78,10 +78,14 @@ namespace Radioactivity {
 
 namespace NuclearReactions {
     inline double Q_Value(double before_mass, double after_mass){
-        double Temp_QValue = (before_mass - after_mass) * NuclearStatics::UNIVERSAL_CONST::MEV_PER_AMU;
+        double Temp_QValue = (before_mass - after_mass) * NuclearStatics::UNITS::MEV_PER_AMU;
     }
     
-    inline double Threshold_Energy(double q_value_mev)
+    inline double Threshold_Energy(double q_value_mev, double m_projectile_u, double m_target_u){
+        if(q_value_mev >= 0){  return 0.0; }
+        if(m_target_u == 0){    return 0.0; }
+        return std::abs(q_value_mev) * ((m_projectile_u +  m_target_u) / m_target_u );
+    }
 }
 
 #endif // NUCLEAR_HPP
