@@ -93,7 +93,7 @@ namespace NuclearReactions {
         return std::abs(q_value_mev) * ((m_projectile_u +  m_target_u) / m_target_u );
     }
 
-    inline double Fission_Power(double number_of_fissions_per_second, double Energy_per_second){
+    inline double Energy_per_fission(double number_of_fissions_per_second, double Energy_per_second){
         return number_of_fissions_per_second * Energy_per_second;
     }
 }
