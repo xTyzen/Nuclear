@@ -21,6 +21,12 @@ namespace NuclearStatics {
         constexpr double LIGHT_SPEED = 299792458.0;
         constexpr double AVOGADRO = 6.02214076 * 1e23;
         constexpr double ELEMENTARY_CHARGE = 1.602176634 * 1e-19;
+
+        constexpr double A_VOLUME = 15.75;
+        constexpr double A_SURFACE = 17.8;
+        constexpr double A_COULOMB = 0.711;
+        constexpr double A_ASYMMETRY = 23.7;
+        constexpr double A_PAIRING = 11.18;
     }
 
     namespace UNITS {
@@ -83,9 +89,17 @@ namespace NuclearReactions {
     
     inline double Threshold_Energy(double q_value_mev, double m_projectile_u, double m_target_u){
         if(q_value_mev >= 0){  return 0.0; }
-        if(m_target_u == 0){    return 0.0; }
+        if(m_target_u == 0){   return 0.0; }
         return std::abs(q_value_mev) * ((m_projectile_u +  m_target_u) / m_target_u );
     }
+
+    inline double Fission_Power(double number_of_fissions_per_second, double Energy_per_second){
+        return number_of_fissions_per_second * Energy_per_second;
+    }
+}
+
+namespace NuclearModels{
+
 }
 
 #endif // NUCLEAR_HPP
